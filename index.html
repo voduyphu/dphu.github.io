@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Slider - Memory Game</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .profile-section {
+      background: #667eea;
+      color: #fff;
+      padding-top: 60px;
+    }
+
+    .profile-card {
+      max-width: 300px;
+      margin: auto;
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .profile-pic {
+      width: 100px;
+      border-radius: 50%;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+    }
+
+    .info h3 {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      background: #667eea;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .slider-section {
+      background: #fff;
+    }
+
+    .swiper {
+      max-width: 1000px;
+      margin: auto;
+      padding-bottom: 50px;
+    }
+
+    .card-wrapper {
+      position: relative;
+    }
+
+    .card-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .card-item {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      width: 280px;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+      top: 50%;
+      transform: translateY(-50%);
+      color: #333;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .memory-section {
+      background: #eef2ff;
+    }
+
+    .memory-wrapper {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .card {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+      perspective: 600px;
+    }
+
+    .view {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      transition: transform 0.5s;
+      border-radius: 8px;
+    }
+
+    .front-view {
+      background: #ccc;
+    }
+
+    .back-view {
+      background: #667eea;
+      color: #fff;
+      transform: rotateY(180deg);
+    }
+
+    .card.flip .front-view {
+      transform: rotateY(180deg);
+    }
+
+    .card.flip .back-view {
+      transform: rotateY(0);
+    }
+
+    .matched {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 👤 Profile -->
+  <section class="section profile-section">
+    <div class="profile-card">
+      <img src="c:\Users\sinhvien\Downloads\phu\phu.jpg" alt="Shin profile" class="profile-pic" />
+      <h2>Võ Duy Phú</h2>
+      <span>Developer</span>
+      <div class="row">
+        <div class="info"><h3>Following</h3><span>120</span></div>
+        <div class="info"><h3>Followers</h3><span>5000</span></div>
+        <div class="info"><h3>Posts</h3><span>209</span></div>
+      </div>
+      <div class="buttons">
+        <a href="https://www.youtube.com/">Message</a>
+        <a href="https://baomoi.com/">Follow Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎞️ Slider -->
+  <section class="section slider-section">
+    <h2 class="section-title">Hình ảnh nổi bật</h2>
+    <div class="swiper container">
+      <ul class="card-list swiper-wrapper">
+        <li class="card-item swiper-slide">
+          <img src="https://picsum.photos/id/1011/400/200" class="card-image">
+          <div class="card-title">Ảnh 1 - Thiết kế</div>
+        </li>
+        <li class="card-item swiper-slide">
+          <img src="https://picsum.photos/id/1015/400/200" class="card-image">
+          <div class="card-title">Ảnh 2 - Phong cảnh</div>
+        </li>
+        <li class="card-item swiper-slide">
+          <img src="https://picsum.photos/id/1024/400/200" class="card-image">
+          <div class="card-title">Ảnh 3 - Du lịch</div>
+        </li>
+        <li class="card-item swiper-slide">
+          <img src="https://picsum.photos/id/1043/400/200" class="card-image">
+          <div class="card-title">Ảnh 4 - Nghệ thuật</div>
+        </li>
+        <li class="card-item swiper-slide">
+          <img src="https://picsum.photos/id/1056/400/200" class="card-image">
+          <div class="card-title">Ảnh 5 - Sáng tạo</div>
+        </li>
+      </ul>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- 🧠 Memory Game -->
+  <section class="section memory-section">
+    <h2 class="section-title">🧠 Trò chơi Ghi nhớ 💎</h2>
+    <div class="memory-wrapper">
+      <ul class="cards"></ul>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const cardsContainer = document.querySelector('.cards');
+    let cardOne, cardTwo;
+    let matchedCards = 0;
+    let disableDeck = false;
+
+    const diamondColors = ['🔴','🟠','🟡','🟢','🔵','🟣','🟤','⚫'];
+    const emojiPairs = diamondColors.flatMap(color => [color, color]);
+
+    function generateCards() {
+      const shuffled = emojiPairs.sort(() => Math.random() - 0.5);
+      cardsContainer.innerHTML = '';
+      shuffled.forEach(color => {
+        const li = document.createElement('li');
+        li.className = 'card';
+        li.dataset.color = color;
+        li.innerHTML = `
+          <div class="view front-view">?</div>
+          <div class="view back-view">${color}</div>
+        `;
+        cardsContainer.appendChild(li);
+      });
+
+      document.querySelectorAll('.card').forEach(card =>
+        card.addEventListener('click', flipCard)
+      );
+    }
+
+    function flipCard(e) {
+      const clicked = e.currentTarget;
+      if (clicked !== cardOne && !disableDeck && !clicked.classList.contains('matched')) {
+        clicked.classList.add('flip');
+        if (!cardOne) {
+          cardOne = clicked;
+          return;
+        }
+        cardTwo = clicked;
+        disableDeck = true;
+
+        const color1 = cardOne.dataset.color;
+        const color2 = cardTwo.dataset.color;
+
+        if (color1 === color2) {
+          cardOne.classList.add('matched');
+          cardTwo.classList.add('matched');
+          matchedCards++;
+          if (matchedCards === 8) {
+            setTimeout(() => {
+              alert('🎉 Bạn đã chiến thắng!');
+              resetGame();
+            }, 500);
+          }
+          resetFlip();
+        } else {
+          setTimeout(() => {
+            cardOne.classList.remove('flip');
+            cardTwo.classList.remove('flip');
+            resetFlip();
+          }, 1000);
+        }
+      }
+    }
+
+    function resetFlip() {
+      [cardOne, cardTwo] = [null, null];
+      disableDeck = false;
+    }
+
+    function resetGame() {
+      matchedCards = 0;
+      cardOne = null;
+      cardTwo = null;
+      generateCards();
+    }
+
+    window.addEventListener('DOMContentLoaded', generateCards);
+
+    // Optional: Init Swiper
+    new Swiper('.swiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        960: { slidesPerView: 3 }
+      }
+    });
+  </script>
+</body>
+</html>
